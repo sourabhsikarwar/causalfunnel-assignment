@@ -16,9 +16,6 @@ export default {
           "50%": { transform: "translateY(-5%)" },
         },
       },
-      animation: {
-        wiggle: 'wiggle 3s ease-in-out infinite',
-      }
     },
   },
   plugins: ["flowbite/plugin"],

@@ -28,10 +28,7 @@ const testReducer = (state, action) => {
           return new DOMParser().parseFromString(match, "text/html").body
             .textContent;
         });
-        let options = [
-          ...q.incorrect_answers,
-          q.correct_answer,
-        ];
+        let options = [...q.incorrect_answers, q.correct_answer];
         options = options.map((option) => {
           return option.replace(/(&[^;]+;)/gi, (match) => {
             return new DOMParser().parseFromString(match, "text/html").body
@@ -41,6 +38,7 @@ const testReducer = (state, action) => {
         const shuffledOptions = options.sort(() => Math.random() - 0.5);
         return {
           ...q,
+          visited: false,
           options: shuffledOptions,
         };
       });
@@ -62,6 +60,14 @@ const testReducer = (state, action) => {
       return {
         ...state,
         totalTime: 1800 - action.payload,
+      };
+    }
+    case "UPDATE_VISITED": {
+      const newQuestionData = [...state.questionData];
+      newQuestionData[action.payload].visited = true;
+      return {
+        ...state,
+        questionData: newQuestionData,
       };
     }
     case "UPDATE_ANSWERS": {

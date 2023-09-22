@@ -9,6 +9,7 @@ const Question = ({ currentQuestion }) => {
   useEffect(() => {
     if (data.questionData.length > 0) {
       setQuestion(data.questionData[currentQuestion]);
+      dispatch({ type: "UPDATE_VISITED", payload: currentQuestion });
     }
   }, [currentQuestion]);
 
@@ -20,7 +21,7 @@ const Question = ({ currentQuestion }) => {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full p-8 rounded bg-gray-50 shadow">
+    <div className="flex flex-col gap-4 w-full p-8 rounded bg-gray-50 shadow animate-fade">
       <div className="flex flex-row justify-between items-center">
         <div className="rounded-md px-2 py-1 bg-sky-300 text-sm">
           {question.category}
@@ -53,7 +54,9 @@ const Question = ({ currentQuestion }) => {
                 name={question.question}
                 onChange={handleQuestions}
               />
-              <label htmlFor={option} className="cursor-pointer">{option}</label>
+              <label htmlFor={option} className="cursor-pointer">
+                {option}
+              </label>
             </div>
           );
         })}
