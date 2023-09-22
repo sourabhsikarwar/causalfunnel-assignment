@@ -47,6 +47,12 @@ const Answers = () => {
                     {question.correct_answer}
                   </span>
                 </div>
+                {question.correct_answer == data.answers[index] &&<div className="text-sm">
+                  Score:{" "}
+                  <span className="font-semibold text-green-600">
+                    {question.difficulty === "easy" ? "+1" : question.difficulty === "medium" ? "+2" : "+4"}
+                  </span>
+                </div>}
               </div>
             </div>
           );

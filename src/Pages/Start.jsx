@@ -48,10 +48,14 @@ const Start = () => {
           Instructions:
         </h1>
         <ul className="list-decimal list-inside text-sky-800 text-sm flex flex-col gap-2">
-          <li>You have total 15 questions in the test.</li>
-          <li>You have total 30 minutes to complete the test.</li>
-          <li>Each question will be of 2 marks.</li>
-          <li>No negative markings will be there.</li>
+          <li>You have total <span className="font-semibold">15</span> questions in the test.</li>
+          <li>You have total <span className="font-semibold">30</span> minutes to complete the test.</li>
+          <li>
+            Easy, medium and hard questions are have
+            <span className="font-semibold"> +1, +2 and +4 </span>
+            marks respectively.
+          </li>
+          <li><span className="font-semibold">No negative</span> markings will be there.</li>
         </ul>
       </div>
       <Link to="/test">
