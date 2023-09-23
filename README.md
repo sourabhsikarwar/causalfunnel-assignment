@@ -34,11 +34,12 @@ npm start
 #### Required
 1. User input validation
 2. Timer
-3. Question navigation through pagination and question navigation component
+3. Question navigation through pagination and question navigation component with status of questions (answered, visited, not visited)
 4. Report generation and answers comparision
 
 #### Bonus
 1. Responsive design
 2. Report generation on Email
+3. Better state management using context API
 
 
