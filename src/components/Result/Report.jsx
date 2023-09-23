@@ -8,12 +8,14 @@ const Report = () => {
   const { data } = useContext(TestContext);
   const [message, setMessage] = useState({});
 
+  // calculations here from the calculations file in services folder
   const { correct, wrong, totalScore, score, notAnswered } = calculate(
     data.questionData,
     data.answers
   );
   const resultTime = calculateTime(data.totalTime);
 
+  // Mail template params object
   const mailContent = {
     name: data.user.name,
     email: data.user.email,
@@ -25,6 +27,7 @@ const Report = () => {
     resultTime: resultTime,
   };
 
+  // function for the Mail service on clicking the button 
   const sendEmail = () => {
     emailjs
       .send(

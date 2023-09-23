@@ -7,6 +7,7 @@ import { useQuery } from "react-query";
 const Start = () => {
   const { data, dispatch } = useContext(TestContext);
 
+  // fetching the data using react-query library and storing it in the context state
   const {
     data: questionData,
     isLoading,
@@ -16,6 +17,7 @@ const Start = () => {
     dispatch({ type: "SET_QUESTION_DATA", payload: response.results });
     dispatch({ type: "INITIAL_ANSWERS" });
   });
+
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-8">
@@ -25,6 +27,7 @@ const Start = () => {
       </div>
     );
   }
+  
   if (error || data.user.name === "" || data.user.email === "") {
     return (
       <div className="flex justify-center items-center py-8">

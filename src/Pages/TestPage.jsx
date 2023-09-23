@@ -24,9 +24,12 @@ const TestPage = () => {
       setCurrentQuestion(currentQuestion + 1);
     }
   };
+
+  // setting the total time to 30 minutes from the current time
   const time = new Date();
   time.setSeconds(time.getSeconds() + 1800);
 
+  // using the useTimer hook to get the total seconds, minutes and seconds
   const { totalSeconds, seconds, minutes } = useTimer({
     expiryTimestamp: time,
     onExpire: () => {
